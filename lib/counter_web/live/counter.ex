@@ -32,6 +32,10 @@ defmodule CounterWeb.Counter do
     {:noreply, assign(socket, val: count)}
   end
 
+  def handle_info(%{event: "presence_diff", payload: %{joins: joins}}, socket)
+      when is_map_key(joins, socket.id),
+      do: {:noreply, socket}
+
   def handle_info(
         %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}},
         %{assigns: %{present: present}} = socket
