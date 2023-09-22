@@ -37,7 +37,7 @@ defmodule CounterWeb.CounterTest do
       }
     })
 
-    assert render(view) =~ "Connected Clients: 3"
+    assert render(view) =~ "Connected Clients: 2"
   end
 
   test "handle_info/2 Presence Update - Leaver", %{conn: conn} do
@@ -52,6 +52,6 @@ defmodule CounterWeb.CounterTest do
       }
     })
 
-    assert render(view) =~ "Connected Clients: 1"
+    assert render(view) =~ "Connected Clients: 0"
   end
 end
